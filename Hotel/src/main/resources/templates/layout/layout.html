@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head th:fragment="head">
+    <meta charset="UTF-8">
+    <meta name='viewport' content="width=device-with, initial-scale=1.0">
+    <title>[[${title}]]</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+</head>
+<body class="bg-amber-800 text-white h-screen w-screen flex justify-end items-center"
+      th:style="'background-image: url('+@{/images/lobby_hotel.jpg}+');
+       background-size: cover; background-position:center; backdrop-filter:blur(1px)'">
+
+
+<header th:fragment="header">
+    <nav class="absolute z-10 top-0 left-0 right-0 flex justify-between items-center  mt-5 py-10 px-20 w-screen h-[70px] ">
+
+        <div class="flex flex-col items-center text-white font-semibold " >
+            <a th:href="@{/}" class="text-4xl font-serif tracking-wide drop-shadow-md transition-all hover:text-yellow-200  hover:scale-105">Westin</a>
+            <span class="text-lg font-serif text-white tracking-wide drop-shadow-sm ">Hotel & Resort </span>
+        </div>
+            <ul class="flex gap-8 text-lg font-medium items-center text-white font-serif" >
+            <li class="hover:text-yellow-200 hover:underline transition-all underline-offset-4 ">
+                <a th:href="@{/habitaciona}" >Acomodation</a>
+            </li>
+            <li class="hover:text-yellow-200 hover:underline transition-all underline-offset-4 ">
+                <a th:href="@{/habitacionesProtalPrueba}" >Prueba Mariana Acomodation</a>
+            </li>
+            <li class="hover:text-yellow-200 hover:underline transition-all underline-offset-4 ">
+                <a th:href="@{/habitacion}" >Acomodation</a>
+            </li>
+            <li class=" border border-white  text-white px-4 py-2 rounded-lg transition-all hover:bg-yellow-200 font-semibold tracking-wide  ">
+                <a th:href="@{/login}">Registrarse</a>
+            </li>
+            <li class="border border-white bg-white text-gray-800 px-8 py-2 rounded-lg transition-all hover:bg-yellow-200">
+                <a th:href="@{/login}">Iniciar sesion </a>
+            </li>
+
+
+        </ul>
+
+    </nav>
+
+</header>
+<div th:fragment="fondo" class="absolute top-0 z-[-2] h-screen w-screen bg-stone-900">
+
+</div>
+
+<footer th:fragment="footer">
+    <div class="text-center text-white fixed bottom-0 left-0 right-0">
+        &copy 2025.All rightd reserved for westin Hotel & resort
+    </div>
+</footer>
+
+
+
+</body>
+</html>

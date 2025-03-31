@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/layout :: head}">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body class="bg-[#A6774E] text-white flex flex-col justify-center items-center min-h-screen w-screen">
+
+<header th:replace="~{layout/layout :: header}" class="bg-white"></header>
+
+
+
+<section class="w-screen min-h-screen flex flex-col justify-center items-center gap-y-4 p-4 text-amber-200 pt-32">
+    <h1 class="text-3xl font-bold text-yellow-900 mb-6 ">[[${title}]]</h1>
+    <section class="w-full max-w-7xl grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all"
+             th:each="habitacion : ${habitaciones}">
+            <img th:src="@{${habitacion.fotoHab}}" alt="imagen de la Habitacion" class="w-full h-56 object-cover">
+            <div class="p-6">
+
+                <p class="text-base text-[#A6774E] text-bold  flex justify-center ">
+                    Room Number: [[${habitacion.idHabitacion}]]
+                </p>
+
+                <h2 class="text-2xl font-serif text-bold text-[#A6774E]">[[${habitacion.tipoHab}]]</h2>
+                <p class="text-small text-[#A6774E]">
+                    Capacity:
+                    <span th:if="${habitacion.capacidadHab} == 1">1 persone</span>
+                    <span th:unless="${habitacion.capacidadHab} == 1">[[${habitacion.capacidadHab}]] people</span>
+                </p>
+                <p class="text-lg text-[#A6774E] ">
+                    Price: $ [[${habitacion.precioHab}]]
+                </p>
+                <div class="mt-3">
+                    <span th:if="${habitacion.disponibilidad}" class="text-green-600 font-medium">Available</span>
+                    <span th:unless="${habitacion.disponibilidad}" class="text-red-600 font-medium">Not available</span>
+                </div>
+                <div class="mt-4 flex gap-2">
+                    <a th:href="@{/editarHabitacion}+${habitacion.idHabitacion}"
+                    class="flex-1 bg-amber-900 text-white text-center py-2 rounded-lg"> Edit</a>
+                    <form th:action="@{/eliminarHab/{id}(id=${habitacion.idHabitacion})}" method="post" onsubmit=" return confirmarEliminacion(event,this);">
+                    <button type="submit" class="bg-red-800 text-white px-4 py-2 rounded-lg ">
+                        Delete
+
+                    </button>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</section>
+
+
+</body>
+</html>

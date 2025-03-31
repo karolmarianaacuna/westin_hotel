@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name='viewport' content="width=device-with, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>Hotel Westin Home</title>
+</head>
+<body class="relative w-full h-screen text-gray-900 flex justify-center items-center"
+      th:style="'background-image: url('+@{/images/lobby_hotel.jpg}+');
+      background-size: cover; background-position: center; background-repeat: no-repeat;'">
+
+
+    <div class="absolute inset-0 bg-amber-800 bg-opacity-30 "></div>
+
+    <div class="absolute z-10 flex flex-col items-center justify-center h-full ">
+        <h3 class="text-2xl text-white font-serif">GET LUXURY AND COMFORT</h3>
+        <h1 class="text-4xl text-white font-bold font-serif">WELCOME TO THE PLACE  WHERE LUXURY  MEET</h1>
+        <button class="border border-white  text-white px-10 py-2  transition-all hover:bg-yellow-200 font-semibold tracking-wide" type="button">
+            MORE
+        </button>
+    </div>
+
+
+
+
+
+
+<!--comentarios-->
+
+<header th:replace="~{layout/layout :: header}"></header>
+    <footer class="relative" th:replace="~{layout/layout :: footer}" ></footer>
+
+
+
+
+</body>
+</html>
